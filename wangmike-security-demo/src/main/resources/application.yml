@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  #关闭spring-session
+  session:
+    store-type: none
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.101.203.238:3306/pay?userUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 1qaz@WSX
+  #redis 配置
+  redis:
+    host: 192.168.3.19
+    #关闭spring-security
+    timeout: 2000
+
+security:
+  basic:
+    enabled: false
+

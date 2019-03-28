@@ -39,9 +39,9 @@ public class UserController {
     @GetMapping("/{id}")
     @JsonView(User.UserDetailView.class)
     public User getUser(@PathVariable("id") String id){
-        throw new UserNotExistException(id);
-//        System.out.println(id);
-//        return new User();
+        //throw new UserNotExistException(id);
+        System.out.println(id);
+        return new User();
     }
 
     @PostMapping

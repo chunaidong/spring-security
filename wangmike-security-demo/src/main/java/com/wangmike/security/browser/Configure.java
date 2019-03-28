@@ -1,4 +1,4 @@
-package com.wangmike.security.config;
+package com.wangmike.security.browser;
 
 import com.wangmike.security.filter.TimeFilter;
 import com.wangmike.security.interceptor.TimeInterceptor;

@@ -16,7 +16,4 @@ spring:
     #关闭spring-security
     timeout: 2000
 
-security:
-  basic:
-    enabled: false
 

@@ -1,4 +1,4 @@
-package com.wangmike.security.config;
+package com.wangmike.security.browser;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

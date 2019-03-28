@@ -3,7 +3,6 @@ package com.wangmike.security.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.wangmike.security.entity.User;
 import com.wangmike.security.entity.UserParam;
-import com.wangmike.security.exception.UserNotExistException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 

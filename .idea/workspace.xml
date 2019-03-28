@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e50da139-1e22-48b5-b583-1c0c32a80f14" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/config/Configure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/filter/TimeFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/interceptor/TimeInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/aspect/TimeAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wangmike-security-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wangmike-security-demo/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/controller/UserController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+            <state relative-caret-position="396">
+              <caret line="22" column="27" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/interceptor/TimeInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+            <state relative-caret-position="478">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/config/Configure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            <state relative-caret-position="164">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#945#946#0" expanded="true" />
@@ -86,6 +85,28 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/aspect/TimeAspect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wangmike-security-demo/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
         </entry>
       </file>
     </leaf>
@@ -121,7 +142,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/entity/UserParam.java" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/wangmike-security-demo/pom.xml" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/service/HelloService.java" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/validator/MyValidator.java" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/entity/User.java" />
@@ -133,9 +153,11 @@
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/exceptionhandler/ControllerExceptionHandler.java" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/exception/UserNotExistException.java" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/filter/TimeFilter.java" />
-        <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/controller/UserController.java" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/interceptor/TimeInterceptor.java" />
         <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/config/Configure.java" />
+        <option value="$PROJECT_DIR$/wangmike-security-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/aspect/TimeAspect.java" />
       </list>
     </option>
   </component>
@@ -232,31 +254,7 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="wangmike" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wangmikesecurity" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring-security" type="462c0819:PsiDirectoryNode" />
-              <item name="wangmike-security-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="wangmike" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wangmikesecurity" type="b2602c69:ProjectViewProjectNode" />
-              <item name="spring-security" type="462c0819:PsiDirectoryNode" />
-              <item name="wangmike-security-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="wangmike" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wangmikesecurity" type="b2602c69:ProjectViewProjectNode" />
@@ -283,7 +281,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553744518420" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553745780670" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -412,7 +410,7 @@
       <workItem from="1553684576500" duration="6109000" />
       <workItem from="1553738269406" duration="120000" />
       <workItem from="1553738423074" duration="1295000" />
-      <workItem from="1553739918626" duration="4318000" />
+      <workItem from="1553739918626" duration="5846000" />
     </task>
     <servers />
   </component>
@@ -449,13 +447,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19740000" />
+    <option name="totallyTimeSpent" value="21268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.3292517" visible="true" weight="0.21002132" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.3292517" visible="true" weight="0.21002132" />
       <window_info id="Structure" order="1" sideWeight="0.6707483" side_tool="true" weight="0.30863538" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -465,13 +462,13 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22494432" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.45050055" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45879734" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32962137" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.64476615" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.42873052" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" />
@@ -516,7 +513,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/controller/UserController.java</url>
-          <line>42</line>
+          <line>41</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -625,14 +622,6 @@
           <caret line="178" column="31" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="31" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wangmike-security-demo/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/time/temporal/TemporalField.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -867,18 +856,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/interceptor/TimeInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        <state relative-caret-position="478">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wangmike-security-demo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/config/Configure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        <state relative-caret-position="164">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#945#946#0" expanded="true" />
@@ -889,8 +886,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        <state relative-caret-position="396">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wangmike-security-demo/src/main/java/com/wangmike/security/aspect/TimeAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

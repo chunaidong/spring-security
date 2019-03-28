@@ -3,6 +3,7 @@ package com.wangmike.security.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.wangmike.security.entity.User;
 import com.wangmike.security.entity.UserParam;
+import com.wangmike.security.exception.UserNotExistException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,8 +39,9 @@ public class UserController {
     @GetMapping("/{id}")
     @JsonView(User.UserDetailView.class)
     public User getUser(@PathVariable("id") String id){
-        System.out.println(id);
-        return new User();
+        throw new UserNotExistException(id);
+//        System.out.println(id);
+//        return new User();
     }
 
     @PostMapping

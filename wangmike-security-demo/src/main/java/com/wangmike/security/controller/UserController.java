@@ -3,6 +3,7 @@ package com.wangmike.security.controller;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.wangmike.security.entity.User;
 import com.wangmike.security.entity.UserParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ public class UserController {
 
     @GetMapping
     @JsonView(User.UserSimpleView.class)
+    @ApiOperation("获取用户列表")
     public List<User> getList(UserParam userParam){
         System.out.println(userParam);
         List<User> users = new ArrayList<>();

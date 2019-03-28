@@ -1,5 +1,7 @@
 package com.wangmike.security.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * <pre>
  *    @author  : wangchun
@@ -11,12 +13,13 @@ package com.wangmike.security.entity;
 public class UserParam {
 
 
+    @ApiModelProperty("用户名")
     private String username;
-
+    @ApiModelProperty("年龄起始位置")
     private int age;
-
+    @ApiModelProperty("年龄终止位置")
     private int ageTo;
-
+    @ApiModelProperty("模糊查询")
     private String xxx;
 
     public String getUsername() {

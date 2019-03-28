@@ -2,11 +2,13 @@ package com.wangmike.security.browser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,6 +26,9 @@ public class MyUserDetailsService implements UserDetailsService {
 
     private Logger logger = LoggerFactory.getLogger(MyUserDetailsService.class);
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     /**
      * Locates the user based on the username. In the actual implementation, the search
      * may possibly be case sensitive, or case insensitive depending on how the
@@ -40,7 +45,11 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.info("当前登陆用户 {}",username);
         //TODO 根据用户名从数据库查询相应的用户信息，构造成UserDeatils返回 到spring-security中
-        User user = new User(username, "123456", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+        String password = passwordEncoder.encode("123456");
+        logger.info("用户密码：{}",password);
+        User user = new User(username, password, true,
+                true, true,
+                true,AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
         return user;
     }
 }

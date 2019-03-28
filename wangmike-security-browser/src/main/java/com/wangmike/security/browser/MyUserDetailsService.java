@@ -44,7 +44,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         logger.info("当前登陆用户 {}",username);
-        //TODO 根据用户名从数据库查询相应的用户信息，构造成UserDeatils返回 到spring-security中
+        //TODO 根据用户名从数据库查询相应的用户信息，构造成UserDeatils返回 到spring-security中，密码生成的时候应该是在用户注册时，将密码加密到数据库中
         String password = passwordEncoder.encode("123456");
         logger.info("用户密码：{}",password);
         User user = new User(username, password, true,

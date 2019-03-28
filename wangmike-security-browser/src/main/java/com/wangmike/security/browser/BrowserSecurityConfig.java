@@ -19,7 +19,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-
+    /**
+     * 添加密码生成规则
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();

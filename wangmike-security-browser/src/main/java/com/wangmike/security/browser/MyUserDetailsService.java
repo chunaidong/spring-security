@@ -21,14 +21,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class MyUserDetailsService implements UserDetailsService {
-
-
-
     private Logger logger = LoggerFactory.getLogger(MyUserDetailsService.class);
-
     @Autowired
     private PasswordEncoder passwordEncoder;
-
     /**
      * Locates the user based on the username. In the actual implementation, the search
      * may possibly be case sensitive, or case insensitive depending on how the
@@ -46,7 +41,12 @@ public class MyUserDetailsService implements UserDetailsService {
         logger.info("当前登陆用户 {}",username);
         //TODO 根据用户名从数据库查询相应的用户信息，构造成UserDeatils返回 到spring-security中，密码生成的时候应该是在用户注册时，将密码加密到数据库中
         String password = passwordEncoder.encode("123456");
+        String password1 = passwordEncoder.encode("123456");
+
+        System.out.println(passwordEncoder.matches("123456", password));
+        System.out.println(passwordEncoder.matches("123456", password1));
         logger.info("用户密码：{}",password);
+        logger.info("用户密码1：{}",password1);
         User user = new User(username, password, true,
                 true, true,
                 true,AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));

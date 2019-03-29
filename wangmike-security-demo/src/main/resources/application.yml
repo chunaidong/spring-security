@@ -15,5 +15,8 @@ spring:
     host: 192.168.3.19
     #关闭spring-security
     timeout: 2000
-
-
+#自定义登陆页面
+wangmike:
+  security:
+    browser:
+      loginPage: /demo-signIn.html

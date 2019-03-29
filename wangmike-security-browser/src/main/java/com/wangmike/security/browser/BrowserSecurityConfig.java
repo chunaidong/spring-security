@@ -1,5 +1,7 @@
 package com.wangmike.security.browser;
 
+import com.wangmike.security.core.properties.SecurityProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,6 +21,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
+    @Autowired
+    private SecurityProperties securityProperties;
+
     /**
      * 添加密码生成规则
      * @return
@@ -31,10 +36,26 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+            //表单登陆
         http.formLogin()
+            //自定义登陆页面
+            //.loginPage("/wangmike-login.html")
+            .loginPage("/authentication/require")
+            //告诉spring-security用户用此url自定义登录，登录请求拦截的url,也就是form表单提交时指定的action
+            .loginProcessingUrl("/authentication/form")
             .and()
+             //请求校验
             .authorizeRequests()
+            //告诉spring满足此规则的请求，不需要进行校验，直接放过
+            .antMatchers("/authentication/require",
+                    securityProperties.getBrowser().getLoginPage()).permitAll()
+            //所有请求
             .anyRequest()
-            .authenticated();
+            //都需要校验
+            .authenticated()
+            .and()
+            //禁用掉csrf功能
+            .csrf()
+            .disable();
     }
 }

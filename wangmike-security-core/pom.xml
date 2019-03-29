@@ -66,6 +66,12 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
         </dependency>
+        <!--使用@ConfigurationProperties的时候 idea 得添加这个注解，否则会报Spring Boot Configuration Annotation Processor not found in classpath 提示-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
 
     </dependencies>
 

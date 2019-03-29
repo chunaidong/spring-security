@@ -19,4 +19,5 @@ spring:
 wangmike:
   security:
     browser:
-      loginPage: /demo-signIn.html
+      loginType: REDIRECT
+#      loginPage: /demo-signIn.html

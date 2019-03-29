@@ -1,5 +1,7 @@
 package com.wangmike.security.browser;
 
+import com.wangmike.security.browser.authentication.AuthonticationFailureHandler;
+import com.wangmike.security.browser.authentication.AuthonticationSuccessHandler;
 import com.wangmike.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +26,12 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SecurityProperties securityProperties;
 
+    @Autowired
+    private AuthonticationFailureHandler authonticationFailureHandler;
+
+    @Autowired
+    private AuthonticationSuccessHandler authonticationSuccessHandler;
+
     /**
      * 添加密码生成规则
      * @return
@@ -43,6 +51,10 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
             .loginPage("/authentication/require")
             //告诉spring-security用户用此url自定义登录，登录请求拦截的url,也就是form表单提交时指定的action
             .loginProcessingUrl("/authentication/form")
+            //自定义登陆成功处理器
+            .successHandler(authonticationSuccessHandler)
+            //自定义登陆失败处理器
+            .failureHandler(authonticationFailureHandler)
             .and()
              //请求校验
             .authorizeRequests()

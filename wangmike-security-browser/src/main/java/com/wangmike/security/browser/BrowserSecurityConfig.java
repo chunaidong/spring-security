@@ -3,6 +3,7 @@ package com.wangmike.security.browser;
 import com.wangmike.security.browser.authentication.AuthonticationFailureHandler;
 import com.wangmike.security.browser.authentication.AuthonticationSuccessHandler;
 import com.wangmike.security.core.properties.SecurityProperties;
+import com.wangmike.security.core.validate.code.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * <pre>
@@ -44,8 +46,14 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
+        validateCodeFilter.setAuthenticationFailureHandler(authonticationFailureHandler);
+        validateCodeFilter.setSecurityProperties(securityProperties);
+        validateCodeFilter.afterPropertiesSet();
+            //在UsernamePasswordAuthenticationFilter之前添加图形验证码校验
+        http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
             //表单登陆
-        http.formLogin()
+            .formLogin()
             //自定义登陆页面
             //.loginPage("/wangmike-login.html")
             .loginPage("/authentication/require")
@@ -60,7 +68,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             //告诉spring满足此规则的请求，不需要进行校验，直接放过
             .antMatchers("/authentication/require",
-                    securityProperties.getBrowser().getLoginPage()).permitAll()
+                    securityProperties.getBrowser().getLoginPage(),
+                    "/code/image").permitAll()
             //所有请求
             .anyRequest()
             //都需要校验

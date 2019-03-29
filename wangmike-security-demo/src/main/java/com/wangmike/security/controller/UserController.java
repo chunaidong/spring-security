@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.wangmike.security.entity.User;
 import com.wangmike.security.entity.UserParam;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.security.core.Authentication;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,11 +25,17 @@ import java.util.List;
 public class UserController {
 
 
+    @GetMapping("/getAuth")
+    @ApiOperation("获取当前登陆用户信息")
+    public Object getAuth(Authentication authentication){
+        return authentication;
+    }
 
     @GetMapping
     @JsonView(User.UserSimpleView.class)
     @ApiOperation("获取用户列表")
     public List<User> getList(UserParam userParam){
+        System.out.println("当前线程【"+Thread.currentThread().getName()+"】");
         System.out.println(userParam);
         List<User> users = new ArrayList<>();
         users.add(new User());
@@ -41,6 +48,7 @@ public class UserController {
     @JsonView(User.UserDetailView.class)
     public User getUser(@PathVariable("id") String id){
         //throw new UserNotExistException(id);
+        System.out.println("当前线程【"+Thread.currentThread().getName()+"】");
         System.out.println(id);
         return new User();
     }

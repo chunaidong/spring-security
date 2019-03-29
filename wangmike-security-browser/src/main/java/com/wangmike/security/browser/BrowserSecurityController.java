@@ -30,8 +30,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @RestController
 public class BrowserSecurityController {
-
-
     private Logger logger = LoggerFactory.getLogger(BrowserSecurityController.class);
     /**
      * 请求缓存，用户发送的请求在进入authentication/require前，会将请求缓存到session中
@@ -41,10 +39,8 @@ public class BrowserSecurityController {
      * 请求重定向对象
      */
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-
     @Autowired
     private SecurityProperties securityProperties;
-
     /**
      * 当需要身份认证时，跳转到这里
      * @param request
@@ -55,9 +51,7 @@ public class BrowserSecurityController {
     @RequestMapping("/authentication/require")
     @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public SimpleResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response) throws Exception{
-
         SavedRequest savedRequest = requestCache.getRequest(request, response);
-
         if(null != savedRequest){
             //获取用户发起的真实请求
             String targetUrl = savedRequest.getRedirectUrl();
@@ -68,9 +62,7 @@ public class BrowserSecurityController {
                 redirectStrategy.sendRedirect(request, response, securityProperties.getBrowser().getLoginPage());
             }
         }
-
         return new SimpleResponse("您访问的服务需要身份认证，请先登陆");
-
     }
 
 }

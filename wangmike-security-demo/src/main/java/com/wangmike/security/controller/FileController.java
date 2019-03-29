@@ -64,9 +64,14 @@ public class FileController {
            response.addHeader("Content-Disposition", "attachment;filename=test.txt");
            IoUtil.copy(inputStream, outputStream);
        }finally {
-           outputStream.flush();
-           inputStream.close();
-           outputStream.close();
+           if(null != outputStream){
+               outputStream.flush();
+               outputStream.close();
+           }
+           if(null != inputStream){
+               inputStream.close();
+           }
+
        }
 
 

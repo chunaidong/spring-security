@@ -9,9 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 /**
  * <pre>
@@ -33,6 +38,24 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AuthonticationSuccessHandler authonticationSuccessHandler;
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    /**
+     * 记住我功能使用
+     * @return
+     */
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository(){
+        JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
+        tokenRepository.setDataSource(dataSource);
+       // tokenRepository.setCreateTableOnStartup(true);
+        return tokenRepository;
+    }
 
     /**
      * 添加密码生成规则
@@ -63,6 +86,15 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
             .successHandler(authonticationSuccessHandler)
             //自定义登陆失败处理器
             .failureHandler(authonticationFailureHandler)
+            .and()
+            //记住我功能
+            .rememberMe()
+            //获取token方式
+            .tokenRepository(persistentTokenRepository())
+            //token失效时间
+            .tokenValiditySeconds(securityProperties.getBrowser().getRememberSeconds())
+            //获取token之后的用户信息
+            .userDetailsService(userDetailsService)
             .and()
              //请求校验
             .authorizeRequests()
